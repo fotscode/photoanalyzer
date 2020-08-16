@@ -1,4 +1,4 @@
-# photoanalyzer with prnt.sr
+# photoanalyzer with prnt.sc
 
 This code basicly downloads an image from prnt.sr and converts it to text, then finds throughtout the text certain keywords, if one or more of the keywords are found the image will be stored on a folder called "imageswithkeywords" on the same path of the code.
 
