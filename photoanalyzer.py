@@ -47,7 +47,7 @@ while True:
             continue
     filename = 'temporaryfile.png'
     urllib.request.urlretrieve(link, filename)
-    img = Image.open(filename).convert("RGB")
+    img = Image.open(filename).convert("L")
     text = tess.image_to_string(img)
     count=wordcount(text,["keyword1","keyword2","keyword3"],code,filename)
     if count > 0:
