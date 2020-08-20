@@ -15,13 +15,8 @@ def wordcount(file,listwords,code,filename):
                 line2=sentence.lower()
                 if lower == line2:
                         count+=1
-        if count > 0:
-                newName="imageswithkeywords/"+code+".png"
-                os.rename(filename,newName)
-                print("One or more of the keywords was found!")
-        else:
-                os.remove(filename)
-                print("Keywords weren't found")
+        return count
+       
 
 def linkImg(url):
     r = urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1941.0 Safari/537.36'})
@@ -54,5 +49,12 @@ while True:
     urllib.request.urlretrieve(link, filename)
     img = Image.open(filename).convert("RGB")
     text = tess.image_to_string(img)
-    wordcount(text,["keyword1","keyword2","keyword3"],code,filename)
+    count=wordcount(text,["keyword1","keyword2","keyword3"],code,filename)
+    if count > 0:
+        newName="imageswithkeywords/"+code+".png"
+        os.rename(filename,newName)
+        print("One or more of the keywords were found!")
+    else:
+        os.remove(filename)
+        print("Keywords weren't found")
 
