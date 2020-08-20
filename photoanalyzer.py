@@ -41,11 +41,11 @@ while True:
     opener=urllib.request.build_opener()
     opener.addheaders=[('User-Agent','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1941.0 Safari/537.36')]
     urllib.request.install_opener(opener) 
-    filename = 'temporaryfile.png'
     link = linkImg(finalink)
     if 'https:' not in link:
             print("Screenshot wasn't found")
             continue
+    filename = 'temporaryfile.png'
     urllib.request.urlretrieve(link, filename)
     img = Image.open(filename).convert("RGB")
     text = tess.image_to_string(img)
